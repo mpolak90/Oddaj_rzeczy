@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllByEmail(String email);
+    List<User> findAllByAdmin(boolean admin);
 }

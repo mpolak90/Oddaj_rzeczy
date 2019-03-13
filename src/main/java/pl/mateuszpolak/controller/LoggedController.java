@@ -90,14 +90,16 @@ public class LoggedController {
         userService.save(user);
         session.setAttribute("user", user);
         request.setAttribute("info", "Hasło zostało zmienione");
-        return "user";
+        return "user/user";
     }
 
-    @RequestMapping("/disavtive")
+    @RequestMapping("/disactive")
     public String disactive(HttpSession session) {
         User user = (User) session.getAttribute("user");
+
         user.setActive(false);
-        session.invalidate();
+        userService.save(user);
+        session.removeAttribute("user");
         return "index";
     }
 }

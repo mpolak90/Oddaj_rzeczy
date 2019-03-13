@@ -26,16 +26,23 @@ public class LoginController {
         if (userService.findByEmail(email).size() == 1) {
             List<User> list = userService.findByEmail(email);
             User user = list.get(0);
+
             if (BCrypt.checkpw(password, user.getPassword())) {
-                session.setAttribute("user", user);
-                return "/index";
+                if (user.isActive()) {
+                    session.removeAttribute("error");
+                    session.setAttribute("user", user);
+                    return "/index";
+                } else {
+                    session.setAttribute("error", "konto nieaktywne");
+                    return "login";
+                }
             } else {
-                session.setAttribute("error", "error");
+                session.setAttribute("error", "nieprawidłowy adres email lub hasło");
                 return "login";
             }
 
         } else {
-            session.setAttribute("error", "error");
+            session.setAttribute("error", "nieprawidłowy adres email lub hasło");
             return "login";
         }
     }

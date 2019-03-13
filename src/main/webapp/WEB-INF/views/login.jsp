@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@include file="include/head.jspx" %>
+
 <body>
 
 <%@include file="include/mini.jsph" %>
@@ -11,15 +12,15 @@
     <h2>Zaloguj się</h2>
 
     <c:if test="${info != null}">
-        <h3>Aby skorzystać z tej części serwisu - zaloguj się lub zerejestruj.</h3>
+        <h3>${info}</h3>
     </c:if>
 
     <form action="/login" method="post">
         <div class="form-group">
             <input type="email" name="email" placeholder="Email" required/>
             <c:if test="${error != null}">
-                <span class="error">Nieprawidłowy login lub hasło</span>
-            </c:if>
+                <span class="error">${error}</span>
+             </c:if>
         </div>
         <div class="form-group">
             <input type="password" name="password" placeholder="Hasło" required/>

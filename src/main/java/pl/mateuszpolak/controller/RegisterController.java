@@ -41,6 +41,7 @@ public class RegisterController {
         user.setEmail(email);
         String hashPass = BCrypt.hashpw(password, BCrypt.gensalt());
         user.setPassword(hashPass);
+        user.setActive(true);
         userService.save(user);
         return "login";
     }

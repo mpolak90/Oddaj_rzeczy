@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const $btn = e.target;
 
             // Buttons Active class change
-            [...this.$buttonsContainer.children].forEach(btn => btn.firstElementChild.classList.remove("active"));
+                [...this.$buttonsContainer.children].forEach(btn => btn.firstElementChild.classList.remove("active"));
             $btn.classList.add("active");
 
             // Current slide

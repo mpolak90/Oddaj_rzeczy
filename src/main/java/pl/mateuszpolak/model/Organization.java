@@ -16,18 +16,16 @@ public class Organization {
     @NotEmpty
     private String name;
 
-    @NotNull
     @OneToOne
     private Address address;
 
-    @NotEmpty
     @NIP
     private String nip;
 
     private String description;
 
-    private boolean active;
+    @ManyToOne
+    private OrgGroup orgGroup;
 
-    @OneToOne
-    private User admin;
+    private boolean active;
 }
