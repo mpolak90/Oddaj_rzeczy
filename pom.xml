@@ -58,5 +58,10 @@
             <artifactId>spring-data-jpa</artifactId>
             <version>1.11.1.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.3m</version>
+        </dependency>
     </dependencies>
 </project>
