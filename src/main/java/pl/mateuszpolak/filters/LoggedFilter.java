@@ -18,7 +18,7 @@ public class LoggedFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
 
         HttpSession session = request.getSession(false);
-        if (session == null || session.getAttribute("user") == null) {
+        if (session == null || session.getAttribute("logged") == null) {
             session.setAttribute("info", "Zaloguj się, aby skorzystać z tej części serwisu.");
             response.sendRedirect(request.getContextPath() + "/login");
         } else chain.doFilter(request, response);

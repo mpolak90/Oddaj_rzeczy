@@ -2,6 +2,7 @@ package pl.mateuszpolak.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.mateuszpolak.model.Address;
 import pl.mateuszpolak.model.User;
 import pl.mateuszpolak.repository.UserRepository;
 
@@ -36,4 +37,6 @@ public class UserService {
     }
 
     public List<User> findByEmail(String email) { return userRepository.findAllByEmail(email); }
+
+    public User findByAddress(Address address) { return userRepository.findByAddress(address); }
 }

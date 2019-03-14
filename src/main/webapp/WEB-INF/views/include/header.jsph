@@ -4,16 +4,16 @@
     <nav class="container container--70">
         <ul class="nav--actions">
 
-            <c:if test="${user == null}">
+            <c:if test="${logged == null}">
                 <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
                 <li><a href="/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
             </c:if>
 
-            <c:if test="${user != null}">
+            <c:if test="${logged != null}">
                 <li><li class="logged-user">
-                Witaj ${user.firstName}
+                Witaj ${logged.firstName}
                 <ul class="dropdown">
-                    <c:if test="${user.admin}">
+                    <c:if test="${logged.admin}">
                         <li><a href="/admin/menu">Admin</a></li>
                     </c:if>
                     <li><a href="/logged/profile">Profil</a></li>

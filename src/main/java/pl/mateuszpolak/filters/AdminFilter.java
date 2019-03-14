@@ -21,13 +21,13 @@ public class AdminFilter implements Filter {
 
         HttpSession session = request.getSession(false);
 
-        if (session == null || session.getAttribute("user") == null) {
+        if (session == null || session.getAttribute("logged") == null) {
             session.setAttribute("info", "Zaloguj się jako administrator, aby skorzystać z tej części serwisu.");
             response.sendRedirect(request.getContextPath() + "/login");
 
         } else {
 
-            User user = (User) session.getAttribute("user");
+            User user = (User) session.getAttribute("logged");
             session.removeAttribute("info");
             if (user.isAdmin()) {
                 chain.doFilter(request, response);

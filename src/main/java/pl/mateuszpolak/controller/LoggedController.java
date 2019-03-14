@@ -44,17 +44,17 @@ public class LoggedController {
 
     @PostMapping("/data")
     public String data(HttpServletRequest request, HttpSession session) {
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("logged");
         user.setFirstName(request.getParameter("firstName"));
         user.setLastName(request.getParameter("lastName"));
         userService.save(user);
-        session.setAttribute("user", user);
+        session.setAttribute("logged", user);
         return "user/settings";
     }
 
     @PostMapping("/address")
     public String address(HttpServletRequest request, HttpSession session) {
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("logged");
         Address address = new Address();
 
         address.setStreet(request.getParameter("street"));
@@ -66,7 +66,7 @@ public class LoggedController {
         addressService.save(address);
         user.setAddress(address);
         userService.save(user);
-        session.setAttribute("user",user);
+        session.setAttribute("logged",user);
         return "user/settings";
     }
 
@@ -75,7 +75,7 @@ public class LoggedController {
         String pass = request.getParameter("pass");
         String password = request.getParameter("password");
         String password2 = request.getParameter("password2");
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("logged");
         if (!(BCrypt.checkpw(pass, user.getPassword()))) {
             request.setAttribute("info", "Błędne hasło");
             return "user/settings";
@@ -88,18 +88,18 @@ public class LoggedController {
         String hashPass = BCrypt.hashpw(password, BCrypt.gensalt());
         user.setPassword(hashPass);
         userService.save(user);
-        session.setAttribute("user", user);
+        session.setAttribute("logged", user);
         request.setAttribute("info", "Hasło zostało zmienione");
         return "user/user";
     }
 
     @RequestMapping("/disactive")
     public String disactive(HttpSession session) {
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("logged");
 
         user.setActive(false);
         userService.save(user);
-        session.removeAttribute("user");
+        session.removeAttribute("logged");
         return "index";
     }
 }

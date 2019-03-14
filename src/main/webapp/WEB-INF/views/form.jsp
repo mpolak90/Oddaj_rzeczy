@@ -282,26 +282,26 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="street" value="${user.address.street}"/> </label>
+                            <label> Ulica <input type="text" name="street" value="${logged.address.street}"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Numer <input type="text" name="number" value="${user.address.number}"/> </label>
+                            <label> Numer <input type="text" name="number" value="${logged.address.number}"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="city" value="${user.address.city}"/> </label>
+                            <label> Miasto <input type="text" name="city" value="${logged.address.city}"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <input type="text" name="postcode" value="${user.address.code}"/>
+                                Kod pocztowy <input type="text" name="postcode" value="${logged.address.code}"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="phone" name="phone" value="${user.address.telnum}"/>
+                                Numer telefonu <input type="phone" name="phone" value="${logged.address.telnum}"/>
                             </label>
                         </div>
                     </div>

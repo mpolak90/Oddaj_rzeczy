@@ -30,7 +30,7 @@ public class LoginController {
             if (BCrypt.checkpw(password, user.getPassword())) {
                 if (user.isActive()) {
                     session.removeAttribute("error");
-                    session.setAttribute("user", user);
+                    session.setAttribute("logged", user);
                     return "/index";
                 } else {
                     session.setAttribute("error", "konto nieaktywne");

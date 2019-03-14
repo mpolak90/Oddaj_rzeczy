@@ -26,11 +26,11 @@
 
         <form method="post" action="/logged/data">
             <div class="form-group">
-                <input type="text" name="firstName" value="${user.firstName}" required/>
+                <input type="text" name="firstName" value="${logged.firstName}" required/>
                 <h3>imię</h3>
             </div>
             <div class="form-group">
-                <input type="text" name="lastName" value="${user.lastName}" required/>
+                <input type="text" name="lastName" value="${logged.lastName}" required/>
                 <h3>nazwisko</h3>
             </div>
             <div class="form-group form-group--buttons">
@@ -51,23 +51,23 @@
         </p>
         <form method="post" action="/logged/address">
             <div class="form-group">
-                <input type="text" name="street" value="${user.address.street}" required/>
+                <input type="text" name="street" value="${logeed.address.street}" required/>
                 <h3>ulica</h3>
             </div>
             <div class="form-group">
-                <input type="text" name="number" value="${user.address.number}" required/>
+                <input type="text" name="number" value="${logged.address.number}" required/>
                 <h3>numer bloku / mieszkania</h3>
             </div>
             <div class="form-group">
-                <input type="text" name="code" value="${user.address.code}" required/>
+                <input type="text" name="code" value="${logged.address.code}" required/>
                 <h3>kod pocztowy</h3>
             </div>
             <div class="form-group">
-                <input type="text" name="city" value="${user.address.city}" required/>
+                <input type="text" name="city" value="${logged.address.city}" required/>
                 <h3>miejscowość</h3>
             </div>
             <div class="form-group">
-                <input type="text" name="telnum" value="${user.address.telnum}" required/>
+                <input type="text" name="telnum" value="${logged.address.telnum}" required/>
                 <h3>numer telefonu</h3>
             </div>
             <div class="form-group form-group--buttons">
