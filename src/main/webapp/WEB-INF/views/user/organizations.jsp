@@ -17,7 +17,7 @@
         <thead>
         <tr>
             <th colspan="3"><input id="myInput" placeholder="Szukaj..."></th>
-            <th colspan="2"><a href="/admin/org/add"><button class="btn">Dodaj organizację</button></a></th>
+            <th colspan="2"><a href="/admin/org/edit"><button class="btn">Dodaj organizację</button></a></th>
             <th colspan="2"><a href="/admin/org/groups"><button class="btn">Grupy</button></a></th>
         </tr>
         <tr>

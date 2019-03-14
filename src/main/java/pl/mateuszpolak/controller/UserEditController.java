@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/admin/users/edit")
-public class EditController {
+public class UserEditController {
 
     @Autowired
     UserService userService;
@@ -52,7 +52,13 @@ public class EditController {
 
     @PostMapping("/address")
     public String postAddress(Model model, HttpServletRequest request) {
-        Address address = new Address();
+        Address address;
+
+        if (request.getParameter("address_id") != null) {
+            address = addressService.find(Long.valueOf(request.getParameter("address_id")));
+        } else {
+            address = new Address();
+        }
         User user = userService.find(Long.valueOf(request.getParameter("id")));
 
         address.setStreet(request.getParameter("street"));

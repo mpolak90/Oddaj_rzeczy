@@ -20,10 +20,12 @@ public class Organization {
 
     @NIP
     private String nip;
+
     private String description;
 
     @ManyToOne
     private OrgGroup orgGroup;
+
     private boolean active;
 
     public Organization() {

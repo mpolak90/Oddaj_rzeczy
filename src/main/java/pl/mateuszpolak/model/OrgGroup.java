@@ -12,10 +12,13 @@ public class OrgGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @NotEmpty
-    String name;
+    private String name;
+
+    public OrgGroup() {
+    }
 
     public Long getId() {
         return id;
@@ -31,8 +34,5 @@ public class OrgGroup {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public OrgGroup() {
     }
 }

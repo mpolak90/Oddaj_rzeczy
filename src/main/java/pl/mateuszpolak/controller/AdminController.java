@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.mateuszpolak.model.Organization;
 import pl.mateuszpolak.model.User;
 import pl.mateuszpolak.service.OrganizationService;
 import pl.mateuszpolak.service.UserService;
@@ -83,5 +84,11 @@ public class AdminController {
         }
         model.addAttribute("user", user);
         return "user/details/user";
+    }
+
+    @GetMapping("/org/{id:[0-9]}")
+    public String org(Model model, @PathVariable Long id) {
+        model.addAttribute("org", organizationService.find(id));
+        return "user/details/organization";
     }
 }

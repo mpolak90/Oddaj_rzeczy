@@ -2,6 +2,7 @@ package pl.mateuszpolak.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.mateuszpolak.model.Address;
 import pl.mateuszpolak.model.Organization;
 import pl.mateuszpolak.repository.OrganizationRepository;
 import java.util.List;
@@ -22,6 +23,10 @@ public class OrganizationService {
 
     public List<Organization> findAll() {
         return organizationRepository.findAll();
+    }
+
+    public Organization findByAddress(Address address) {
+        return organizationRepository.findByAddress(address);
     }
 
     public void delete(Long id) {

@@ -31,7 +31,11 @@ public class LoginController {
                 if (user.isActive()) {
                     session.removeAttribute("error");
                     session.setAttribute("logged", user);
-                    return "/index";
+                    if (user.isAdmin()) {
+                        return "/user/admin";
+                    } else {
+                        return "/user/profile";
+                    }
                 } else {
                     session.setAttribute("error", "konto nieaktywne");
                     return "login";
