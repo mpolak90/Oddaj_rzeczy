@@ -3,11 +3,14 @@ package pl.mateuszpolak.controller;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.mateuszpolak.model.Address;
+import pl.mateuszpolak.model.Organization;
 import pl.mateuszpolak.model.User;
 import pl.mateuszpolak.service.AddressService;
+import pl.mateuszpolak.service.OrganizationService;
 import pl.mateuszpolak.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,8 +27,13 @@ public class LoggedController {
     @Autowired
     AddressService addressService;
 
+    @Autowired
+    OrganizationService organizationService;
+
     @RequestMapping("/form")
-    public String form() {
+    public String form(Model model) {
+        model.addAttribute("orgs", organizationService.findAll());
+        model.addAttribute("cities", organizationService.cities());
         return "form";
     }
 
